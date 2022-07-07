@@ -1,7 +1,7 @@
 
   Feature: VyTrack Grid Settings Button
 
-    @vehicles_page
+    @vehicles_page123
     Scenario: Sales Manager is able to aces Vehicle page
       Given the Sales Manager is on Vytrack homepage
       When the Sales Manager clicks on Fleet dropdown

@@ -25,23 +25,6 @@ public class VehiclePageGrid {
     public WebElement gridSettingsBtn;
 
 
-    public boolean isButtonOnRight(String buttoonOne,String buttonTwo){
-
-        boolean check = false;
-        String xPath;
-
-        xPath = "//a[@title='"+buttoonOne+"']/..//following-sibling::a[@title='"+buttonTwo+"']";
-
-        WebElement element = Driver.getDriver().findElement(By.xpath(xPath));
-
-        if(element.isDisplayed()){
-            check=true;
-        }
+ }
 
 
-
-        return check;
-
-    }
-
-}
