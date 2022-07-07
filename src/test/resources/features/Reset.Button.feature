@@ -1,6 +1,6 @@
 
-@Wip10
-Feature: As a User I should be able to click reset button
+@Wip
+Feature: As a Store Manager I should be able to click reset button
 
   Users: store manager, sales manager truck driver
 
@@ -15,7 +15,6 @@ Feature: As a User I should be able to click reset button
 
   Scenario: User should be able to click Grid settings
 
-    When User sees Grid settings on the right side of the page
     And User click Grid setting
     Then User see section with "Grid Settings" heading
 
@@ -32,5 +31,6 @@ Feature: As a User I should be able to click reset button
     And User click on Id from checkbox
     Then User see id column on vehicle page
     And  User click Grid setting
-    When User clicks the reset button
+    And  User sees Reset button is on the left side of Grid settings
+    When User click the reset button
     Then Id checkbox is unselected
