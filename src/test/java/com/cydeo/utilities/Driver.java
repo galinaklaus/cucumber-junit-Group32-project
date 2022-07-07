@@ -1,5 +1,6 @@
 package com.cydeo.utilities;
 
+import com.cydeo.utilities.ConfigurationReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,28 +10,26 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
-    // Creating a private constructor, we are closing access to the
-    // object of this class from outside the class
-    private Driver() {
+    //    Creating a private constructor,we are closing access to it
+//    object of this class outside the class
+    private Driver(){
+
     }
 
-    // We make WebDriver private, because we want to close access from outside of class
-    // We make it static, because we will use it inside static method
-    private static WebDriver driver;
+    //    We make WebDriver private,because we want to close access from outside class
+//    We make it static,because we will use it in static method
+    private static WebDriver driver; // values is null by default
 
+    public static WebDriver getDriver(){
 
-    public static WebDriver getDriver() {
+//         it will check if driver is null and if it is we will set up browser inside if statiement
+//         if you already setup driver and using it again for following line of codes, it will return to same driver
 
-        // it will check if driver is null and if it is we will set up browser inside if statiement
-        // if you already setup driver and using it again for following line of codes, it will return to same driver
-        if (driver == null) {
-
-
-            // We read browserType from configuration.properties with
-            // help of ConfigurationReader class' getProperty() method
+        if(driver == null){
+//            We read browserType from configuration.properties with help of ConfigurationReader class and getProperty() method.
             String browserType = ConfigurationReader.getProperty("browser");
 
-            switch(browserType){
+            switch (browserType){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -46,17 +45,13 @@ public class Driver {
             }
 
         }
-
         return driver;
-
-
     }
 
-    // This method will make sure our driver value is always null after using quit() method
-    public static void closeDriver() {
-        if (driver != null) {
-            driver.quit(); // this line will terminate the existing driver session. with using this driver will not be even null
-            driver = null;
+    public static void closeDriver(){
+        if (driver != null){
+            driver.quit();//this line will terminate the existing session.value will not even be null
+            driver=null;
         }
     }
 
