@@ -26,9 +26,7 @@ public class Reset_defination {
 
     @Given("User is on VyTrack homepage")
     public void user_is_on_vyTrack_homepage() {
-//        driver.get(ConfigurationReader.getProperty("vytrack_login_url"));
-//
-//        loginPage.login(ConfigurationReader.getProperty("vytrack_username"),ConfigurationReader.getProperty("vytrack_password"));
+
     }
     @When("User clicks on Fleet")
 
