@@ -8,6 +8,7 @@ import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class GridResetStepDef {
 
@@ -36,6 +37,7 @@ public class GridResetStepDef {
     @Then("the Sales Manager clicks on Vehicles under fleet dropdown")
     public void the_sales_manager_clicks_on_vehicles_under_fleet_dropdown() {
 
+        BrowserUtils.waitForClickablility(vehiclePageGrid.vehicles,5);
         vehiclePageGrid.vehicles.click();
 
     }
