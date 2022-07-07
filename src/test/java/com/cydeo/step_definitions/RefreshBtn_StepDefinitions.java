@@ -102,8 +102,8 @@ public class RefreshBtn_StepDefinitions {
 
     @When("the user clicks on Fleet dropdown")
     public void theUserClicksOnFleetDropdown() {
-        BrowserUtils.waitForClickablility(dashboardPage.fleetBtn, 10);
-        dashboardPage.fleetBtn.click();
+        BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 10);
+        dashboardPage.getFleetBtn(username).click();
     }
 
     @Then("the user clicks on Vehicles under fleet dropdown")
