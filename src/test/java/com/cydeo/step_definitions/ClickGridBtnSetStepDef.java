@@ -5,6 +5,7 @@ import com.cydeo.pages.Vytrack_pages.VehiclesPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,11 +29,17 @@ public class ClickGridBtnSetStepDef {
 
     @Given("User is on VyTrack homepage")
     public void user_is_on_vy_track_homepage() {
-
+        String expectedTitle = "Dashboard";
+        wait= new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.titleIs(expectedTitle));
+        Assert.assertEquals(expectedTitle, driver.getTitle());
     }
 
     @Given("User clicks on Fleet")
     public void user_clicks_on_fleet() {
+        BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 20);
+        BrowserUtils.waitFor(5);
+       dashboardPage.getFleetBtn(username).click();
         BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 20);
 
         dashboardPage.getFleetBtn(username).click();
@@ -51,6 +58,11 @@ public class ClickGridBtnSetStepDef {
         wait.until(ExpectedConditions.titleIs("All - Car - Entities - System - Car - Entities - System"));
         Assert.assertTrue(driver.getTitle().equals("All - Car - Entities - System - Car - Entities - System"));
     }
+    @When("the Store manager sees Grid Settings is on the right side of the Reset button and on the right side of the page")
+    public void the_store_manager_sees_grid_settings_is_on_the_right_side_of_the_reset_button_and_on_the_right_side_of_the_page() {
+        boolean btn = vehiclesPage.isTheElementOnTheRIGHTSideOfPage(vehiclesPage.Grid);
+        Assert.assertTrue("Grid Settings Button position is  failed " , vehiclesPage.isTheElementOnTheRIGHTSideOfPage(vehiclesPage.Grid) );
+        Assert.assertTrue(" Grid Settings Button assertion failed", btn );
 
     @When("the Sales Manager sees Grid Settings is on the right side of the Reset button and on the right side of the page")
     public void the_sales_manager_sees_grid_settings_is_on_the_right_side_of_the_reset_button_and_on_the_right_side_of_the_page() {
@@ -83,4 +95,19 @@ public class ClickGridBtnSetStepDef {
 
 
 
+
+
+    @And("the Store manager sees {string}, {string}, {string}")
+    public void theStoreManagerSees(String arg0, String arg1, String arg2) {
+        Assert.assertEquals("Verification failed","NAME",vehiclesPage.nameSM.getText());
+        Assert.assertEquals("Verification failed","SORT",vehiclesPage.sortS.getText());
+       Assert.assertEquals("Verification failed","SHOW",vehiclesPage.show.getText());
+
+       Assert.assertTrue(vehiclesPage.nameSM.isDisplayed());
+        Assert.assertTrue(vehiclesPage.show.isDisplayed());
+        Assert.assertTrue(vehiclesPage.sortS.isDisplayed());
+
+
+
+    }
 }
