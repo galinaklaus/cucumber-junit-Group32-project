@@ -61,6 +61,14 @@ public class VehiclesPage {
 
 //    @FindBy(xpath = "//div[@class='btn-group open']/a")
 //    public WebElement exportGridBtnDropDown;
+    @FindBy(xpath = "//th[@style='width: 163.547px;']")
+    public WebElement nameGridDropdownSalesM;
+
+    @FindBy(xpath = "//th[@style='width: 50.7031px;']")
+    public WebElement sortGridDropdownSalesM;
+
+    @FindBy(xpath = "//span[.='Show']/..//preceding-sibling::th[@style='width: 50.7031px;']")
+    public WebElement showGridDropdownSalesM;
 
 
 

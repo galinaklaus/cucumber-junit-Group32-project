@@ -52,7 +52,7 @@ public class ClickGridBtnSetStepDef {
     }
     @When("the Sales Manager sees Grid Settings is on the right side of the Reset button and on the right side of the page")
     public void the_sales_manager_sees_grid_settings_is_on_the_right_side_of_the_reset_button_and_on_the_right_side_of_the_page() {
-        boolean btn = vehiclesPage.IfBtnOnTheLeft("Grid Settings", "Reset");
+        boolean btn = vehiclesPage.isTheElementOnTheRIGHTSideOfPage(vehiclesPage.Grid);
         Assert.assertTrue("Grid Settings Button position is  failed " , vehiclesPage.Grid.isDisplayed() );
         Assert.assertTrue(" Grid Settings Button assertion failed", btn );
 
