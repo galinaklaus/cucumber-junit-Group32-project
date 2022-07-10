@@ -1,7 +1,6 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.Vytrack_pages.DashboardPage;
-import com.cydeo.pages.Vytrack_pages.LoginPage;
 import com.cydeo.pages.Vytrack_pages.VehiclesPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
@@ -11,14 +10,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class ClickGridSetStepDef {
+public class ClickGridBtnSetStepDef {
 
     WebDriver driver = Driver.getDriver();
 
