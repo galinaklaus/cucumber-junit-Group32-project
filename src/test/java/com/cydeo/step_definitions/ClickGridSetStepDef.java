@@ -48,21 +48,21 @@ public class ClickGridSetStepDef {
         dashboardPage.vehiclesBtn.click();
 
     }
-    @Given("the Store manager is on Vehicle page")
-    public void the_store_manager_is_on_vehicle_page() {
+    @Given("the Sales Manager is on Vehicle page")
+    public void the_sales_manager_is_on_vehicle_page() {
         wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.titleIs("All - Car - Entities - System - Car - Entities - System"));
         Assert.assertTrue(driver.getTitle().equals("All - Car - Entities - System - Car - Entities - System"));
     }
-    @When("the Store manager sees Grid Settings is on the right side of the Reset button and on the right side of the page")
-    public void the_store_manager_sees_grid_settings_is_on_the_right_side_of_the_reset_button_and_on_the_right_side_of_the_page() {
+    @When("the Sales Manager sees Grid Settings is on the right side of the Reset button and on the right side of the page")
+    public void the_sales_manager_sees_grid_settings_is_on_the_right_side_of_the_reset_button_and_on_the_right_side_of_the_page() {
         boolean btn = vehiclesPage.IfBtnOnTheLeft("Grid Settings", "Reset");
         Assert.assertTrue("Grid Settings Button position is  failed " , vehiclesPage.Grid.isDisplayed() );
         Assert.assertTrue(" Grid Settings Button assertion failed", btn );
 
     }
-    @Then("the Store manager should be able to click Grid Settings button")
-    public void the_store_manager_should_be_able_to_click_grid_settings_button() {
+    @Then("the Sales Manager manager should be able to click Grid Settings button")
+    public void the_sales_manager_manager_should_be_able_to_click_grid_settings_button() {
         BrowserUtils.waitForClickablility(vehiclesPage.Grid, 20);
     vehiclesPage.Grid.click();
     }

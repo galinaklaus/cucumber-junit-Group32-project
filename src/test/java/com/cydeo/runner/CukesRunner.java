@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features" ,
         glue = "com/cydeo/step_definitions" ,
         dryRun = false,
-        tags =" @vehicles_page_store_manager",
-        monochrome = true
+        tags =" @zm"
+
 )
 
 public class CukesRunner {
