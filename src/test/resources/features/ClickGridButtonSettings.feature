@@ -9,3 +9,4 @@ Feature: User should be able to click reset Grid Settings Button
     And the Sales Manager is on Vehicle page
     When the Sales Manager sees Grid Settings is on the right side of the Reset button and on the right side of the page
     Then the Sales Manager manager should be able to click Grid Settings button
+    And the Sales Manager sees Names , Sort and Show

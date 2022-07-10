@@ -62,8 +62,14 @@ public class ClickGridBtnSetStepDef {
 
     @Then("the Sales Manager manager should be able to click Grid Settings button")
     public void the_sales_manager_manager_should_be_able_to_click_grid_settings_button() {
+
         BrowserUtils.waitForClickablility(vehiclesPage.Grid, 20);
         vehiclesPage.Grid.click();
+
+    }
+
+    @Then("the Sales Manager sees Names , Sort and Show")
+    public void the_sales_manager_sees_names_sort_and_show() {
 
         Assert.assertTrue("Name text is shown",vehiclesPage.nameGridDropdownSalesM.isDisplayed());
         Assert.assertTrue("Sort text is shown",vehiclesPage.sortGridDropdownSalesM.isDisplayed());
