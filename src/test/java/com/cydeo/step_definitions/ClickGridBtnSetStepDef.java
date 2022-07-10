@@ -33,9 +33,9 @@ public class ClickGridBtnSetStepDef {
 
     @Given("User clicks on Fleet")
     public void user_clicks_on_fleet() {
-        BrowserUtils.waitForClickablility(dashboardPage.fleetBtn_manager, 20);
+        BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 20);
 
-        dashboardPage.fleetBtn_manager.click();
+        dashboardPage.getFleetBtn(username).click();
     }
 
     @Given("User clicks on Vehicles under Fleet dropdown")
