@@ -21,7 +21,7 @@ public class DashboardPage {
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement vehiclesBtn;
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
+    @FindBy(xpath = "((//i[@class='fa-asterisk menu-icon']) [1])")
     public WebElement fleetBtn_manager;
 
     public WebElement getFleetBtn(String username){
