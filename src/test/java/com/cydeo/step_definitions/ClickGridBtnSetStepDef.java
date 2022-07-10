@@ -68,14 +68,18 @@ public class ClickGridBtnSetStepDef {
 
     }
 
-    @Then("the Sales Manager sees Names , Sort and Show")
-    public void the_sales_manager_sees_names_sort_and_show() {
+    @Then("the Sales Manager sees {string} , {string} and {string}")
+      public void the_sales_manager_sees_and(String name, String sort, String show){
 
-        Assert.assertTrue("Name text is shown",vehiclesPage.nameGridDropdownSalesM.isDisplayed());
-        Assert.assertTrue("Sort text is shown",vehiclesPage.sortGridDropdownSalesM.isDisplayed());
-        Assert.assertTrue("Show text is shown",vehiclesPage.showGridDropdownSalesM.isDisplayed());
+        Assert.assertEquals("Verification failed","NAME",vehiclesPage.nameGridDropdownSalesM.getText());
+        Assert.assertEquals("Verification failed","SORT",vehiclesPage.sortGridDropdownSalesM.getText());
+        Assert.assertEquals("Verification failed","SHOW",vehiclesPage.showGridDropdownSalesM.getText());
+
+
 
     }
+
+
 
 
 }

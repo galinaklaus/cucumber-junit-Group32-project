@@ -67,7 +67,7 @@ public class VehiclesPage {
     @FindBy(xpath = "//th[@style='width: 50.7031px;']")
     public WebElement sortGridDropdownSalesM;
 
-    @FindBy(xpath = "//span[.='Show']/..//preceding-sibling::th[@style='width: 50.7031px;']")
+    @FindBy(xpath = "//span[.='Show'] [1]")
     public WebElement showGridDropdownSalesM;
 
 
