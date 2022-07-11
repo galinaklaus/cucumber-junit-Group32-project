@@ -10,10 +10,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class Reset_defination {
+
     WebDriver driver = Driver.getDriver();
 
     LoginPage loginPage = new LoginPage();
@@ -22,48 +26,46 @@ public class Reset_defination {
 
     VehiclesPage vehiclesPage = new VehiclesPage();
 
-    WebDriverWait wait = new WebDriverWait(driver, 10);
-
     @Given("User is on VyTrack homepage")
     public void user_is_on_vyTrack_homepage() {
-
+        System.out.println();
     }
-    @When("User clicks on Fleet")
 
-    public void user_clicks_on_fleet() throws InterruptedException {
+    @When("User clicks on Fleet")
+    public void user_clicks_on_fleet()  {
+        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
         if (ConfigurationReader.getProperty("vytrack_username").equals("user185")) {
-            dashboardPage.fleetBtn.click();
-            Thread.sleep(5000);
+            dashboardPage.fleetBtn_truckDriver.click();
+
         } else {
-            dashboardPage.fleet.click();
-            Thread.sleep(5000);
+            dashboardPage.fleetBtn_manager.click();
         }
     }
+
     @Then("User clicks on Vehicles under Fleet dropdown")
-    public void user_clicks_on_vehicles_under_fleet_dropdown() throws InterruptedException {
+    public void user_clicks_on_vehicles_under_fleet_dropdown() {
         dashboardPage.vehiclesBtn.click();
-        Thread.sleep(5000);
+        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
-    @Then("user see title of page as {string}")
-    public void user_see_title_of_page_as(String string)  {
+    @Then("User see title of page")
+    public void user_see_title_of_page() {
+        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         if (ConfigurationReader.getProperty("vytrack_username").equals("user185")){
 
-            String expectedTitle = string.replace("All - ","");
-            wait.until(ExpectedConditions.titleIs(expectedTitle));
-            Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
+            Assert.assertEquals(vehiclesPage.titleDriver, Driver.getDriver().getTitle());
         }
         else {
-            wait.until(ExpectedConditions.titleIs(string));
-            Assert.assertEquals(string, Driver.getDriver().getTitle());
+
+            Assert.assertEquals(vehiclesPage.titleManager, Driver.getDriver().getTitle());
         }
-
     }
-    @Then("User click Grid setting")
-    public void user_click_grid_setting() throws InterruptedException {
-        vehiclesPage.gridSetting.click();
 
-        Thread.sleep(2000);
+    @Then("User click Grid setting")
+    public void user_click_grid_setting() {
+        vehiclesPage.gridSetting.click();
+        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
     @Then("User see section with {string} heading")
@@ -74,28 +76,17 @@ public class Reset_defination {
     }
 
     @When("User click on Id from checkbox")
-    public void user_click_on_id_from_checkbox() throws InterruptedException {
-        vehiclesPage.idButton.click();
-        Thread.sleep(2000);
+    public void user_click_on_id_from_checkbox()  {
+        vehiclesPage.idButton1.click();
+        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
-    @Then("User see id column on vehicle page")
-    public void user_see_id_column_on_vehicle_page() throws InterruptedException {
-        if(ConfigurationReader.getProperty("vytrack_username").equals("storemanager220")) {
+    @Then("User see id checkbox is selected")
+    public void user_see_id_checkbox_is_selected() {
 
-            String idMsg = vehiclesPage.idColumn.getText();
-            System.out.println("resetPage.idColumn.isDisplayed() = " + vehiclesPage.idColumn.isDisplayed());
-            Assert.assertEquals("ID", idMsg);
-            Thread.sleep(2000);
-        }
-        else{
-
-            String idMsg = vehiclesPage.idColumn1.getText();
-            System.out.println("resetPage.idColumn1.isDisplayed() = " + vehiclesPage.idColumn1.isDisplayed());
-            Assert.assertEquals("ID", idMsg);
-            Thread.sleep(2000);
-        }
+        System.out.println("vehiclesPage.idButton.isSelected() = " + vehiclesPage.idButton1.isSelected());
     }
+
     @Then("User sees Reset button is on the left side of Grid settings")
     public void user_sees_reset_button_is_on_the_left_side_of_grid_settings() {
 
@@ -104,20 +95,13 @@ public class Reset_defination {
     }
     @When("User click the reset button")
     public void user_click_the_reset_button() {
-        vehiclesPage.resetButton.click();
+        vehiclesPage.resetBtn.click();
     }
-    @Then("Id checkbox is unselected")
-    public void id_checkbox_is_unselected() throws InterruptedException {
-        if(ConfigurationReader.getProperty("vytrack_username").equals("storemanager220")) {
-            String idMsg = vehiclesPage.idColumn.getText();
-            Assert.assertEquals("LICENSE PLATE", idMsg);
-            Thread.sleep(2000);
-        }
-        else{
-            String idMsg = vehiclesPage.idColumn1.getText();
-            Assert.assertEquals("LICENSE PLATE", idMsg);
-            Thread.sleep(2000);
-        }
+    @Then("User see id checkbox is unselected")
+    public void user_see_id_checkbox_is_unselected() {
+
+        System.out.println("vehiclesPage.idButton.isSelected() = " + vehiclesPage.idButton1.isSelected());
     }
+
 }
 

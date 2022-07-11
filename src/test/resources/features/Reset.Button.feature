@@ -9,9 +9,9 @@ Feature: As a Store Manager I should be able to click reset button
     And User clicks on Fleet
     And User clicks on Vehicles under Fleet dropdown
 
-  Scenario: User see the title of the page " All-Car-Entities-System-Car-Entities-System"
+  Scenario: User see the title of the page
 
-    Then user see title of page as "All - Car - Entities - System - Car - Entities - System"
+    Then User see title of page
 
   Scenario: User should be able to click Grid settings
 
@@ -23,14 +23,14 @@ Feature: As a Store Manager I should be able to click reset button
     When User click Grid setting
     And User click on Id from checkbox
     And  User click Grid setting
-    Then User see id column on vehicle page
+    Then User see id checkbox is selected
 
   Scenario: User is able to do reset
 
     When User click Grid setting
     And User click on Id from checkbox
-    Then User see id column on vehicle page
+    Then User see id checkbox is selected
     And  User click Grid setting
     And  User sees Reset button is on the left side of Grid settings
     When User click the reset button
-    Then Id checkbox is unselected
+    Then User see id checkbox is unselected
