@@ -25,11 +25,8 @@ public class VehiclesPage {
     @FindBy(xpath = "//td[@class=\"visibility-cell\"]//input")
     public WebElement idButton;
 
-    @FindBy(xpath = "//tr[@class=\"grid-header-row\"]//th[2]")
-    public WebElement idColumn;
-
-    @FindBy(xpath = "//tr[@class=\"grid-header-row\"]//th[1]")
-    public WebElement idColumn1;     // truck driver and sales manager id column verification
+    @FindBy(xpath = "//td[@class=\"visibility-cell\"]//input")
+    public WebElement idButton1;
 
     @FindBy(partialLinkText = "Refresh")
     public WebElement refreshBtn;
