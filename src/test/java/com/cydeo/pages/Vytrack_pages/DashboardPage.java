@@ -11,11 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 public class DashboardPage {
 
     public DashboardPage(){
-
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[1]")
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
     public WebElement fleetBtn_truckDriver;
 
     @FindBy(xpath = "//span[.='Vehicles']")
@@ -26,7 +25,6 @@ public class DashboardPage {
 
     public WebElement getFleetBtn(String username){
 
-
         if(username.equals("user185") || username.equals("user186")){
 
             WebElement fleetBtn_truckDriver = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
@@ -36,6 +34,10 @@ public class DashboardPage {
 
             return fleetBtn_managers;
         }
+
     }
+
+    @FindBy(xpath = "//li[@id='user-menu']/a")
+    public WebElement fullName;
 
 }

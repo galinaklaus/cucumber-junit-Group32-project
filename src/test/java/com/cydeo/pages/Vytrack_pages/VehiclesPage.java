@@ -22,7 +22,7 @@ public class VehiclesPage {
     @FindBy(xpath ="//div[.=\"Grid Settings\"]")
     public WebElement  gridMsg;
 
-    @FindBy(xpath = "//td[@class=\"visibility-cell\"]")
+    @FindBy(xpath = "//td[@class=\"visibility-cell\"]//input")
     public WebElement idButton;
 
     @FindBy(xpath = "//td[@class=\"visibility-cell\"]//input")
@@ -34,9 +34,6 @@ public class VehiclesPage {
     @FindBy(xpath = "(//div[@class='loader-frame'])[1]")
     public WebElement loadingElement;
 
-    public String titleManager= "All - Car - Entities - System - Car - Entities - System";
-
-    public String titleDriver= "Car - Entities - System - Car - Entities - System";
 
     public boolean IfBtnOnTheLeft(String btnRight, String btnLeft){
 
