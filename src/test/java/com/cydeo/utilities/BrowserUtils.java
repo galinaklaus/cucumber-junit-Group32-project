@@ -11,11 +11,13 @@ import java.util.Set;
 public class BrowserUtils {
 
     public static void waitFor(int seconds){
+
         try {
-            Thread.sleep(10000);
+            Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
 
     public static WebElement waitForClickablility(WebElement element, int timeout) {
