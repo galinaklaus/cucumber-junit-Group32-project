@@ -25,7 +25,6 @@ public class DashboardPage {
 
     public WebElement getFleetBtn(String username){
 
-
         if(username.equals("user185") || username.equals("user186")){
 
             WebElement fleetBtn_truckDriver = Driver.getDriver().findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
@@ -35,6 +34,7 @@ public class DashboardPage {
 
             return fleetBtn_managers;
         }
+
     }
 
     @FindBy(xpath = "//li[@id='user-menu']/a")
