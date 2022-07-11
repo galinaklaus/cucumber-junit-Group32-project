@@ -9,14 +9,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class Reset_defination {
+public class GroupedReset_defination {
 
     WebDriver driver = Driver.getDriver();
 
@@ -25,6 +26,7 @@ public class Reset_defination {
     DashboardPage dashboardPage=new DashboardPage();
 
     VehiclesPage vehiclesPage = new VehiclesPage();
+    WebDriverWait wait = new WebDriverWait(driver,10);
 
     @Given("User is on VyTrack homepage")
     public void user_is_on_vyTrack_homepage() {
@@ -33,7 +35,7 @@ public class Reset_defination {
 
     @When("User clicks on Fleet")
     public void user_clicks_on_fleet()  {
-        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         if (ConfigurationReader.getProperty("vytrack_username").equals("user185")) {
             dashboardPage.fleetBtn_truckDriver.click();
@@ -46,26 +48,30 @@ public class Reset_defination {
     @Then("User clicks on Vehicles under Fleet dropdown")
     public void user_clicks_on_vehicles_under_fleet_dropdown() {
         dashboardPage.vehiclesBtn.click();
-        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }
 
     @Then("User see title of page")
-    public void user_see_title_of_page() {
-        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    public void user_see_title_of_page() throws InterruptedException {
+    Thread.sleep(5000);
         if (ConfigurationReader.getProperty("vytrack_username").equals("user185")){
-
+            wait.until(ExpectedConditions.titleIs(vehiclesPage.titleDriver));
             Assert.assertEquals(vehiclesPage.titleDriver, Driver.getDriver().getTitle());
-        }
-        else {
 
+        }
+        else
+        {
+            wait.until(ExpectedConditions.titleIs(vehiclesPage.titleManager));
             Assert.assertEquals(vehiclesPage.titleManager, Driver.getDriver().getTitle());
+
         }
     }
 
     @Then("User click Grid setting")
     public void user_click_grid_setting() {
+        Driver.getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         vehiclesPage.gridSetting.click();
-        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }
 
     @Then("User see section with {string} heading")
@@ -78,13 +84,14 @@ public class Reset_defination {
     @When("User click on Id from checkbox")
     public void user_click_on_id_from_checkbox()  {
         vehiclesPage.idButton1.click();
-        Driver.getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        Driver.getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }
 
     @Then("User see id checkbox is selected")
     public void user_see_id_checkbox_is_selected() {
 
         System.out.println("vehiclesPage.idButton.isSelected() = " + vehiclesPage.idButton1.isSelected());
+        Assert.assertTrue(vehiclesPage.idButton1.isSelected());
     }
 
     @Then("User sees Reset button is on the left side of Grid settings")
@@ -100,7 +107,8 @@ public class Reset_defination {
     @Then("User see id checkbox is unselected")
     public void user_see_id_checkbox_is_unselected() {
 
-        System.out.println("vehiclesPage.idButton.isSelected() = " + vehiclesPage.idButton1.isSelected());
+        System.out.println("vehiclesPage.idButton.isSelected() = " + vehiclesPage.idButton.isSelected());
+        Assert.assertFalse(vehiclesPage.idButton1.isSelected());
     }
 
 }

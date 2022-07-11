@@ -1,6 +1,6 @@
 
 @Wip
-Feature: As a Store Manager I should be able to click reset button
+Feature: As a User I should be able to click reset button
 
   Users: store manager, sales manager truck driver
 
