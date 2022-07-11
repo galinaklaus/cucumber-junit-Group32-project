@@ -9,7 +9,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-
 public class Sueda_ResetButton {
 
     DashboardPage dashboardPage = new DashboardPage();
@@ -51,7 +50,7 @@ public class Sueda_ResetButton {
     @Then("the sales manager sees Id column")
     public void the_sales_manager_sees_id_column() {
         BrowserUtils.waitFor(2);
-        Assert.assertTrue(vehiclesPage.idColumn1.isDisplayed());
+        Assert.assertTrue(vehiclesPage.idButton.isDisplayed());
     }
     @Then("the sales manager sees reset button on the left side of Grid settings")
     public void the_sales_manager_sees_reset_button_on_the_left_side_of_grid_settings() {
