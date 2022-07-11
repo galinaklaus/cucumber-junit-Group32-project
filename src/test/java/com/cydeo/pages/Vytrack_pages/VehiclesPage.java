@@ -9,12 +9,14 @@ import org.openqa.selenium.support.PageFactory;
 public class VehiclesPage {
 
     public VehiclesPage(){
-
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(partialLinkText = "Reset")
     public WebElement resetBtn;
+
+    @FindBy(xpath = "//a[@title='Reset']")
+    public WebElement resetButton;
 
     @FindBy(xpath="//a[@title=\"Grid Settings\"]")
     public WebElement gridSetting;
@@ -36,7 +38,6 @@ public class VehiclesPage {
 
     @FindBy(xpath = "(//div[@class='loader-frame'])[1]")
     public WebElement loadingElement;
-
 
     public boolean IfBtnOnTheLeft(String btnRight, String btnLeft){
 

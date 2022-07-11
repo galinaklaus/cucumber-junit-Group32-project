@@ -16,10 +16,10 @@ public class Hooks {
 
     @Before
     public void setUpScenario(){
+
         WebDriver driver = Driver.getDriver();
 
         LoginPage loginPage = new LoginPage();
-
 
         String username = ConfigurationReader.getProperty("vytrack_username");
         String password = ConfigurationReader.getProperty("vytrack_password");
@@ -28,14 +28,11 @@ public class Hooks {
 
         loginPage.login(username,password);
 
-
     }
-
 
     // @After is coming from cucumber. It is running after each scenario
     @After
     public void teardownScenario(Scenario scenario) {
-
 
         if(scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
@@ -44,6 +41,7 @@ public class Hooks {
         }
 
         Driver.closeDriver();
+
     }
 
 }

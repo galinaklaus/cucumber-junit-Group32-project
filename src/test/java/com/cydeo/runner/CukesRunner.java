@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features" ,
         glue = "com/cydeo/step_definitions" ,
         dryRun = false,
-        tags =" @vehicles_page_store_manager",
+        tags ="@B26G32-68 and @B26G32-77",
         monochrome = true
 )
 

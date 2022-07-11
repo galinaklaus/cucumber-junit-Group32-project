@@ -7,10 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-        public LoginPage(){
-
-            PageFactory.initElements(Driver.getDriver(), this);
-        }
+    public LoginPage(){
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
 
     @FindBy(xpath = "//input[@id='prependedInput']")
     public WebElement username_box;
@@ -21,13 +20,10 @@ public class LoginPage {
     @FindBy(xpath = "//button[@id='_submit']")
     public WebElement loginBtn;
 
-
     public void login(String username, String Password){
-
         username_box.sendKeys(username);
         password_box.sendKeys(Password);
         loginBtn.click();
-
     }
 
 }

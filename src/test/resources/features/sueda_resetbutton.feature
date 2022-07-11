@@ -1,4 +1,4 @@
-@sueda
+@B26G32-68 @B26G32-77
 Feature: As a user I should be able to click reset button
   Users: store manager, sales manager, truck driver
 
