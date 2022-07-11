@@ -6,6 +6,7 @@ import com.cydeo.pages.Vytrack_pages.VehiclesPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -102,8 +103,8 @@ public class RefreshBtn_StepDefinitions {
 
     @When("the user clicks on Fleet dropdown")
     public void theUserClicksOnFleetDropdown() {
-        BrowserUtils.waitForClickablility(dashboardPage.fleetBtn, 10);
-        dashboardPage.fleetBtn.click();
+        BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 10);
+        dashboardPage.getFleetBtn(username).click();
     }
 
     @Then("the user clicks on Vehicles under fleet dropdown")
@@ -123,14 +124,57 @@ public class RefreshBtn_StepDefinitions {
 
     @When("the store manager sees Refresh button on the left side of Reset button")
     public void the_store_manager_sees_refresh_button_on_the_left_side_of_reset_button() {
+        BrowserUtils.waitFor(3);
+
+        boolean isOnLeft = vehiclesPage.IfBtnOnTheLeft("Reset","Refresh");
+
+        Assert.assertTrue("Verification of Refresh button position failed!", isOnLeft);
 
     }
     @Then("the store manager should be able to click Refresh button")
     public void the_store_manager_should_be_able_to_click_refresh_button() {
 
+        BrowserUtils.waitForClickablility(vehiclesPage.refreshBtn, 10);
+        vehiclesPage.refreshBtn.click();
+
     }
     @Then("the store manager should see refreshing element is present on the page")
     public void the_store_manager_should_see_refreshing_element_is_present_on_the_page() {
+       wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(vehiclesPage.loadingElement));
+// run at home with no wait, if it fails run with it
+        Assert.assertTrue("Visibility of element is failed!", vehiclesPage.loadingElement.isDisplayed());
 
+
+    }
+//sales manager
+    @Then("the Sales manager sees the title of the page {string}")
+    public void theSalesManagerSeesTheTitleOfThePage(String expected) {
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.titleIs(expected));
+        Assert.assertTrue(driver.getTitle().equals(expected));
+    }
+
+    @When("the sales manager sees Refresh button on the left side of Reset button")
+    public void theSalesManagerSeesRefreshButtonOnTheLeftSideOfResetButton() {
+        BrowserUtils.waitFor(3);
+
+        boolean isOnLeft = vehiclesPage.IfBtnOnTheLeft("Reset","Refresh");
+
+        Assert.assertTrue("Verification of Refresh button position failed!", isOnLeft);
+    }
+
+    @Then("the sales manager should be able to click Refresh button")
+    public void theSalesManagerShouldBeAbleToClickRefreshButton() {
+        BrowserUtils.waitForClickablility(vehiclesPage.refreshBtn, 10);
+        vehiclesPage.refreshBtn.click();
+    }
+
+    @And("the sales manager should see refreshing element is present on the page")
+    public void theSalesManagerShouldSeeRefreshingElementIsPresentOnThePage() {
+        wait = new WebDriverWait(Driver.getDriver(), 20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='loader-frame'])[1]")));
+
+        Assert.assertTrue("Visibility of element is failed!", vehiclesPage.loadingElement.isDisplayed());
     }
 }
