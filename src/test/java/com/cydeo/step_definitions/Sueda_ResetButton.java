@@ -62,7 +62,7 @@ public class Sueda_ResetButton {
     @Then("the sales manager should be able to click reset button")
     public void the_sales_manager_should_be_able_to_click_reset_button() {
         BrowserUtils.waitFor(2);
-        vehiclesPage.resetButton.click();
+        vehiclesPage.resetBtn.click();
     }
     @Then("the sales manager should be able to see previously selected item is unselected")
     public void the_sales_manager_should_be_able_to_see_previously_selected_item_is_unselected() {
