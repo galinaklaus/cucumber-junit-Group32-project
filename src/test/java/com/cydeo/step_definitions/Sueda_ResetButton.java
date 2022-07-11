@@ -21,7 +21,7 @@ public class Sueda_ResetButton {
     @When("the user clicks on Fleet dropdown")
     public void theUserClicksOnFleetDropdown() {
         BrowserUtils.waitFor(2);
-        dashboardPage.fleetBtn.click();
+        dashboardPage.fleetBtn_manager.click();
     }
     @Then("the user clicks on Vehicles under Fleet dropdown")
     public void the_user_clicks_on_vehicles_under_fleet_dropdown() {
