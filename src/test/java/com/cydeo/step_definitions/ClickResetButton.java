@@ -17,6 +17,7 @@ public class ClickResetButton {
 
     @Given("the user is on Vytrack homepage")
     public void the_user_is_on_vytrack_homepage() {
+        System.out.println();
     }
     @When("the user clicks on Fleet dropdown")
     public void theUserClicksOnFleetDropdown() {

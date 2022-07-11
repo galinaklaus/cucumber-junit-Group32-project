@@ -1,4 +1,4 @@
-@resetbutton
+@Resetbutton
 Feature: As a user I should be able to click reset button
   Users: store manager, sales manager, truck driver
 
