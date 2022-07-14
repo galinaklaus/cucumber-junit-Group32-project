@@ -15,10 +15,10 @@ public class ClickResetButton {
     DashboardPage dashboardPage = new DashboardPage();
     VehiclesPage vehiclesPage = new VehiclesPage();
 
-    @Given("the user is on Vytrack homepage")
-    public void the_user_is_on_vytrack_homepage() {
-        System.out.println();
-    }
+//     @Given("the user is on Vytrack homepage")
+//     public void the_user_is_on_vytrack_homepage() {
+//         System.out.println();
+//     }
 //     @When("the user clicks on Fleet dropdown")
 //     public void theUserClicksOnFleetDropdown() {
 //         BrowserUtils.waitFor(2);
@@ -28,11 +28,11 @@ public class ClickResetButton {
 //             dashboardPage.fleetBtn_truckDriver.click();
 //         }
 //     }
-    @Then("the user clicks on Vehicles under Fleet dropdown")
-    public void the_user_clicks_on_vehicles_under_fleet_dropdown() {
-        BrowserUtils.waitFor(2);
-        dashboardPage.vehiclesBtn.click();
-    }
+//     @Then("the user clicks on Vehicles under Fleet dropdown")
+//     public void the_user_clicks_on_vehicles_under_fleet_dropdown() {
+//         BrowserUtils.waitFor(2);
+//         dashboardPage.vehiclesBtn.click();
+//     }
 
     // sales manager part
 
