@@ -37,11 +37,11 @@ public class Sueda_ResetButton {
         BrowserUtils.waitFor(2);
         vehiclesPage.gridSetting.click();
     }
-    @Then("the sales manager sees popup with {string} heading")
-    public void the_sales_manager_sees_popup_with_heading(String string) {
-        BrowserUtils.waitFor(2);
-        Assert.assertEquals(string, vehiclesPage.gridMsg.getText());
-    }
+//     @Then("the sales manager sees popup with {string} heading")
+//     public void the_sales_manager_sees_popup_with_heading(String string) {
+//         BrowserUtils.waitFor(2);
+//         Assert.assertEquals(string, vehiclesPage.gridMsg.getText());
+//     }
     @When("the sales manager should be able to select Id item checkbox")
     public void the_sales_manager_should_be_able_to_select_id_item_checkbox() {
         BrowserUtils.waitFor(2);
