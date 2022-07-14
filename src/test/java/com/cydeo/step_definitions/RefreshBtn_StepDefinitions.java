@@ -90,16 +90,16 @@ public class RefreshBtn_StepDefinitions {
     }
 
     //Background:
-    @Given("the user is on Vytrack homepage")
-    public void theUserIsOnVytrackHomepage() {
+//     @Given("the user is on Vytrack homepage")
+//     public void theUserIsOnVytrackHomepage() {
 
-        String expectedTitle = "Dashboard";
+//         String expectedTitle = "Dashboard";
 
-        wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.titleIs(expectedTitle));
+//         wait = new WebDriverWait(driver, 10);
+//         wait.until(ExpectedConditions.titleIs(expectedTitle));
 
-        Assert.assertEquals(expectedTitle, driver.getTitle());
-    }
+//         Assert.assertEquals(expectedTitle, driver.getTitle());
+//     }
 
 //     @When("the user clicks on Fleet dropdown")
 //     public void theUserClicksOnFleetDropdown() {
@@ -107,11 +107,11 @@ public class RefreshBtn_StepDefinitions {
 //         dashboardPage.getFleetBtn(username).click();
 //     }
 
-    @Then("the user clicks on Vehicles under fleet dropdown")
-    public void theUserClicksOnVehiclesUnderFleetDropdown() {
-        BrowserUtils.waitForClickablility(dashboardPage.vehiclesBtn, 10);
-        dashboardPage.vehiclesBtn.click();
-    }
+//     @Then("the user clicks on Vehicles under fleet dropdown")
+//     public void theUserClicksOnVehiclesUnderFleetDropdown() {
+//         BrowserUtils.waitForClickablility(dashboardPage.vehiclesBtn, 10);
+//         dashboardPage.vehiclesBtn.click();
+//     }
 
     // a store manager
 
