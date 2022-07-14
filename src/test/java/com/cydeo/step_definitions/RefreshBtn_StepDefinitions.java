@@ -101,11 +101,11 @@ public class RefreshBtn_StepDefinitions {
         Assert.assertEquals(expectedTitle, driver.getTitle());
     }
 
-    @When("the user clicks on Fleet dropdown")
-    public void theUserClicksOnFleetDropdown() {
-        BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 10);
-        dashboardPage.getFleetBtn(username).click();
-    }
+//     @When("the user clicks on Fleet dropdown")
+//     public void theUserClicksOnFleetDropdown() {
+//         BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 10);
+//         dashboardPage.getFleetBtn(username).click();
+//     }
 
     @Then("the user clicks on Vehicles under fleet dropdown")
     public void theUserClicksOnVehiclesUnderFleetDropdown() {
