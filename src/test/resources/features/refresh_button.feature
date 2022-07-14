@@ -1,11 +1,11 @@
-@vytrack_resfresh_btn @B26G32-60 @B26G32-61
+@smoke @vytrack_resfresh_btn @B26G32-60 @B26G32-61
 Feature: Vytrack app Refresh button feature
 
   User story:As a user when I am on Vytrack => Fleet => Vehicles, I should be able to see Export Grid dropdown, Refresh, Reset and Grid Settings Buttons
 
   Accounts are: truck driver, store manager, sales manager
 
-  @vehicles_page
+  @vehicles_page 
   Scenario: Truck driver is able to access Vehicles page
     Given the truck driver is on Vytrack homepage
     When the truck driver clicks on Fleet dropdown
