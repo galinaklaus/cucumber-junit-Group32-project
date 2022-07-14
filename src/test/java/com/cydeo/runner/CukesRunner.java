@@ -11,16 +11,15 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "html:target/cucumber-report.html",
                 "json:target/cucumber-report.json",
-                "rerun:target/rerun.txt",
-                "pretty"},
+                "rerun:target/rerun.txt"
+                },
         features = "src/test/resources/features" ,
         glue = "com/cydeo/step_definitions" ,
         dryRun = false,
-        tags ="@resetbutton",
+        tags ="@smoke",
         monochrome = true,
         publish = true
 )
 
 public class CukesRunner {
-
 }
