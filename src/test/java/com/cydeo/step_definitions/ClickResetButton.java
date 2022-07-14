@@ -15,24 +15,24 @@ public class ClickResetButton {
     DashboardPage dashboardPage = new DashboardPage();
     VehiclesPage vehiclesPage = new VehiclesPage();
 
-//     @Given("the user is on Vytrack homepage")
-//     public void the_user_is_on_vytrack_homepage() {
-//         System.out.println();
-//     }
-//     @When("the user clicks on Fleet dropdown")
-//     public void theUserClicksOnFleetDropdown() {
-//         BrowserUtils.waitFor(2);
-//         if(ConfigurationReader.getProperty("vytrack_username").contains("salesmanager") || ConfigurationReader.getProperty("vytrack_username").contains("storemanager")) {
-//             dashboardPage.fleetBtn_manager.click();
-//         }else{
-//             dashboardPage.fleetBtn_truckDriver.click();
-//         }
-//     }
-//     @Then("the user clicks on Vehicles under Fleet dropdown")
-//     public void the_user_clicks_on_vehicles_under_fleet_dropdown() {
-//         BrowserUtils.waitFor(2);
-//         dashboardPage.vehiclesBtn.click();
-//     }
+    @Given("the user is on Vytrack homepage")
+    public void the_user_is_on_vytrack_homepage() {
+        System.out.println();
+    }
+    @When("the user clicks on Fleet dropdown")
+    public void theUserClicksOnFleetDropdown() {
+        BrowserUtils.waitFor(2);
+        if(ConfigurationReader.getProperty("vytrack_username").contains("salesmanager") || ConfigurationReader.getProperty("vytrack_username").contains("storemanager")) {
+            dashboardPage.fleetBtn_manager.click();
+        }else{
+            dashboardPage.fleetBtn_truckDriver.click();
+        }
+    }
+    @Then("the user clicks on Vehicles under Fleet dropdown")
+    public void the_user_clicks_on_vehicles_under_fleet_dropdown() {
+        BrowserUtils.waitFor(2);
+        dashboardPage.vehiclesBtn.click();
+    }
 
     // sales manager part
 
@@ -171,7 +171,5 @@ public class ClickResetButton {
         System.out.println("vehiclesPage.idButton.isSelected() = " + vehiclesPage.idButton.isSelected());
         Assert.assertFalse(vehiclesPage.idButton.isSelected());
     }
-
-
 
 }

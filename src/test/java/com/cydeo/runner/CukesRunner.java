@@ -11,15 +11,16 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "html:target/cucumber-report.html",
                 "json:target/cucumber-report.json",
-                "rerun:target/rerun.txt"
-                },
+                "rerun:target/rerun.txt",
+                "pretty"},
         features = "src/test/resources/features" ,
         glue = "com/cydeo/step_definitions" ,
         dryRun = false,
-        tags ="@smoke",
+        tags ="@truck_driver_reset_button and @B26G32-89 and @B26G32-90",
         monochrome = true,
         publish = true
 )
 
 public class CukesRunner {
+
 }

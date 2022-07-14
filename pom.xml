@@ -13,9 +13,6 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
-  
-         
-
     <build>
         <plugins>
             <plugin>
@@ -33,8 +30,6 @@
             </plugin>
         </plugins>
     </build>
-           
-
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -73,10 +68,6 @@
             <scope>test</scope>
         </dependency>
 
-
-
-
     </dependencies>
-
 
 </project>

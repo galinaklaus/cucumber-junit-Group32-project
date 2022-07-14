@@ -14,7 +14,7 @@ public class DashboardPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[1]")
     public WebElement fleetBtn_truckDriver;
 
     @FindBy(xpath = "//span[.='Vehicles']")

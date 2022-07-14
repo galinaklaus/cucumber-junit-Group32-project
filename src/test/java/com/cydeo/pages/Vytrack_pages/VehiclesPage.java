@@ -16,7 +16,7 @@ public class VehiclesPage {
     @FindBy(partialLinkText = "Reset")
     public WebElement resetBtn;
 
-    @FindBy(xpath = "//a[@title=\"Grid Settings\"]")
+    @FindBy(xpath = "//a[@title='Grid Settings']")
     public WebElement gridSetting;
 
     @FindBy(xpath = "//i[@class='fa-cog hide-text']")
@@ -31,17 +31,16 @@ public class VehiclesPage {
     @FindBy(xpath = "(//span[.='Sort'])[1]")
     public WebElement sortS;
 
-
-    @FindBy(xpath = "//div[.=\"Grid Settings\"]")
+    @FindBy(xpath = "//div[.='Grid Settings']")
     public WebElement gridMsg;
 
-    @FindBy(xpath = "//td[@class=\"visibility-cell\"]")
+    @FindBy(xpath = "//td[@class='visibility-cell']//input")
     public WebElement idButton;
 
-    @FindBy(xpath = "//tr[@class=\"grid-header-row\"]//th[2]")
+    @FindBy(xpath = "//tr[@class='grid-header-row']//th[2]")
     public WebElement idColumn;
 
-    @FindBy(xpath = "//tr[@class=\"grid-header-row\"]//th[1]")
+    @FindBy(xpath = "//tr[@class='grid-header-row']//th[1]")
     public WebElement idColumn1;     // truck driver and sales manager id column verification
 
     @FindBy(partialLinkText = "Refresh")
@@ -65,9 +64,6 @@ public class VehiclesPage {
     @FindBy(xpath = "(//a[@class='no-hash'])[3]")
     public WebElement XLSX;
 
-
-
-
     public boolean IfBtnOnTheLeft(String btnRight, String btnLeft) {
 
         boolean check = false;
@@ -83,7 +79,6 @@ public class VehiclesPage {
         }
         return check;
     }
-
 
     public boolean isTheElementOnTheLeftSideOfPage(WebElement element) {
 
@@ -102,8 +97,5 @@ public class VehiclesPage {
         return xCenter < xElement;
 
     }
-
-
-
 
 }
