@@ -10,7 +10,7 @@ Feature: Vytrack app Refresh button feature
     When the user clicks on Fleet dropdown
     Then the user clicks on Vehicles under fleet dropdown
 
-  @smoke @vehicles_page_truck_driver @B26G32-60 @B26G32-61
+  @smoke
   Scenario: Truck driver is able to access Vehicles page
 
     Then the truck driver sees the title of the page "Car - Entities - System - Car - Entities - System"
