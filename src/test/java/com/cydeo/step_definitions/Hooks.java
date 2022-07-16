@@ -1,17 +1,31 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.Vytrack_pages.LoginPage;
+import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
     @Before
     public void setUpScenario(){
-        System.out.println("--> It is coming from @Before in Hooks");
+
+        WebDriver driver = Driver.getDriver();
+
+        LoginPage loginPage = new LoginPage();
+
+        String username = ConfigurationReader.getProperty("vytrack_username");
+        String password = ConfigurationReader.getProperty("vytrack_password");
+
+        driver.get(ConfigurationReader.getProperty("vytrack_login_url"));
+
+        loginPage.login(username,password);
+
     }
 
 
