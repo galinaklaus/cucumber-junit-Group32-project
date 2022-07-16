@@ -30,27 +30,29 @@ public class RefreshBtn_StepDefinitions {
     String username = ConfigurationReader.getProperty("vytrack_username");
     String password = ConfigurationReader.getProperty("vytrack_password");
 
-    @Given("the truck driver is on Vytrack homepage")
-    public void the_truck_driver_is_on_vytrack_homepage() {
+    @Given("the user is on Vytrack homepage")
+    public void theUserIsOnVytrackHomepage() {
 
-        driver.get(ConfigurationReader.getProperty("vytrack_login_url"));
+        String expectedTitle = "Dashboard";
 
-        loginPage.login(username,password);
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.titleIs(expectedTitle));
 
+        Assert.assertEquals(expectedTitle, driver.getTitle());
     }
-    @When("the truck driver clicks on Fleet dropdown")
-    public void the_truck_driver_clicks_on_fleet_dropdown() {
 
-
-        BrowserUtils.waitForClickablility(dashboardPage.fleetBtn, 10);
-        dashboardPage.fleetBtn.click();
+    @When("the user clicks on Fleet dropdown")
+    public void theUserClicksOnFleetDropdown() {
+        BrowserUtils.waitForClickablility(dashboardPage.getFleetBtn(username), 10);
+        dashboardPage.getFleetBtn(username).click();
     }
-    @Then("the truck driver clicks on Vehicles under fleet dropdown")
-    public void the_truck_driver_clicks_on_vehicles_under_fleet_dropdown() {
 
+    @Then("the user clicks on Vehicles under fleet dropdown")
+    public void theUserClicksOnVehiclesUnderFleetDropdown() {
         BrowserUtils.waitForClickablility(dashboardPage.vehiclesBtn, 10);
         dashboardPage.vehiclesBtn.click();
     }
+
     @Then("the truck driver sees the title of the page {string}")
     public void the_truck_driver_sees_the_title_of_the_page(String expectedTitle) {
 
@@ -64,19 +66,7 @@ public class RefreshBtn_StepDefinitions {
 
 
 
-    @Given("the truck driver is on Vehicles page")
-    public void the_truck_driver_is_on_vehicles_page() {
-        driver.get(ConfigurationReader.getProperty("vytrack_login_url"));
 
-        loginPage.login(username,password);
-
-
-        BrowserUtils.waitForClickablility(dashboardPage.fleetBtn, 10);
-        dashboardPage.fleetBtn.click();
-        BrowserUtils.waitForClickablility(dashboardPage.vehiclesBtn, 10);
-        dashboardPage.vehiclesBtn.click();
-
-    }
     @When("the driver sees Refresh button on the left side of Reset button")
     public void the_driver_sees_refresh_button_on_the_left_side_of_reset_button() {
 
